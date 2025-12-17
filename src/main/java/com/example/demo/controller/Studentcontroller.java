@@ -25,4 +25,12 @@ public class Studctl{
     public StudEntity get(@PathVariable int id){
         return ser.getAllStudent(id);
     }
+    @GetMapping("/getAll")
+    public Map<Integer,StudEntity>getAllStudents(){
+        return ser.getAllStudents();
+    }
+    @PutMapping("/update/{id}")
+    public StudEntity update(@PathVariable int id,@RequestBody StudEntity st){
+        return ser.updateStudent(id,st);
+    }
 }
