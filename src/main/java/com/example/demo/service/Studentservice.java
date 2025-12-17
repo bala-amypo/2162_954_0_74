@@ -1,36 +1,31 @@
-package com.example.demo.Service;
+package com.example.demo.service;
+
+import org.springframework.stereotype.Service;
+import com.example.demo.entity.Studententity;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-
-import com.example.demo.Entity.StudEntity;
-
 @Service
-public class Studentservice{
-    Map<Integer,StudEntity>details=new HashMap<>();
+public class Studentservice {
 
-    public StudEntity saveData(StudEntity st){
-        details.put(st.getId(),st);
+    private Map<Integer, Studententity> db = new HashMap<>();
+
+    public Studententity saveData(Studententity st) {
+        db.put(st.getId(), st);
         return st;
     }
-    public StudEntity getStudent(int id){
-        return details.get(id);
-    }
-    public Map<Integer,StudEntity>getAllStudents(){
-        return details;
-    }
-    public Map<Integer, Studententity> getAllStudents() {
-    return repo.findAll();
-}
 
-    public StudEntity updateStudent(int id,StudEntity st){
-        if(details.containsKey(id)){
-            details.put(id,st);
-            return st;
-        }
-        return null;
+    public Studententity getStudent(int id) {
+        return db.get(id);
     }
-    
+
+    public Map<Integer, Studententity> getAllStudents() {
+        return db;
     }
+
+    public Studententity updateStudent(int id, Studententity st) {
+        db.put(id, st);
+        return st;
+    }
+}

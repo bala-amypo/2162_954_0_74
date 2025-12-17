@@ -6,18 +6,15 @@ public class Studententity {
     private String name;
     private int age;
 
-    // ✅ No-arg constructor (REQUIRED)
     public Studententity() {
     }
 
-    // ✅ Parameterized constructor
     public Studententity(int id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
-    // ✅ Getters & Setters
     public int getId() {
         return id;
     }
