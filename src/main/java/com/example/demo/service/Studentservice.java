@@ -21,6 +21,10 @@ public class Studentservice{
     public Map<Integer,StudEntity>getAllStudents(){
         return details;
     }
+    public Map<Integer, Studententity> getAllStudents() {
+    return repo.findAll();
+}
+
     public StudEntity updateStudent(int id,StudEntity st){
         if(details.containsKey(id)){
             details.put(id,st);

@@ -14,6 +14,13 @@ package com.example.demo.controller;
 package com.example.demo.entity;
 package com.example.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.entity.Studententity;
+import com.example.demo.service.Studentservice;
+
+
 
 @RestController
 public class Studentcontroller{
@@ -27,6 +34,11 @@ public class Studentcontroller{
     public StudEntity get(@PathVariable int id){
         return ser.getStudent(id);
     }
+    @GetMapping("/getall")
+    public Map<Integer, Studententity> getAllStudents() {
+        return ser.getAllStudents();
+    }
+
     @GetMapping("/getAll")
     public Map<Integer,StudEntity>getAllStudents(){
         return ser.getAllStudents();
