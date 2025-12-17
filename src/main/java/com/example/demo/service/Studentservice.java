@@ -9,5 +9,15 @@ import com.example.demo.Entity.StudEntity;
 
 @Service
 public class StudService{
+    Map<Integer,StudEntity>details=new HashMap<>();
+
+    public StudEntity saveData(StudEntity st){
+        details.put(st.getId(),st);
+        return st;
+    }
+    public StudEntity getStudent(int id){
+        return details.get(id);
+    }
+    public Map<Integer,StudEntity>getAllStudents
     
-}
+    }
