@@ -1,18 +1,17 @@
 package com.example.demo.entity;
 
-public class Studententity {
+public class StudentEntity {
 
     private int id;
     private String name;
-    private int age;
+    private String email;
 
-    public Studententity() {
-    }
+    public StudentEntity() {}
 
-    public Studententity(int id, String name, int age) {
+    public StudentEntity(int id, String name, String email) {
         this.id = id;
         this.name = name;
-        this.age = age;
+        this.email = email;
     }
 
     public int getId() {
@@ -31,11 +30,11 @@ public class Studententity {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
