@@ -1,49 +1,34 @@
-package com.example.demo.service.impl;
+package com.example.demo.service.Impl;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.*;
 import org.springframework.stereotype.Service;
-
-import com.example.demo.entity.StudentEntity;
-import com.example.demo.repository.StudentRepo;
-import com.example.demo.service.StudentService;
+import com.example.demo.entity.Student;
 
 @Service
 public class StudentServiceImpl implements StudentService {
 
-    @Autowired
-    private StudentRepo repo;
+    private final Map<Long, Student> store = new HashMap<>();
+    private long counter = 1;
 
     @Override
-    public StudentEntity addStudent(StudentEntity student) {
-        return repo.save(student);
+    public Student insertStudent(Student st) {
+        st.setId(counter++);
+        store.put(st.getId(), st);
+        return st;
     }
 
     @Override
-    public List<StudentEntity> getAllStudents() {
-        return repo.findAll();
+    public List<Student> getAllStudents() {
+        return new ArrayList<>(store.values());
     }
 
     @Override
-    public Optional<StudentEntity> getStudentById(Long id) {
-        return repo.findById(id);
-    }
-
-    @Override
-    public StudentEntity updateStudent(Long id, StudentEntity student) {
-        return repo.findById(id)
-                .map(existing -> {
-                    existing.setName(student.getName());
-                    existing.setEmail(student.getEmail());
-                    return repo.save(existing);
-                })
-                .orElse(null);
+    public Optional<Student> getOneStudent(Long id) {
+        return Optional.ofNullable(store.get(id));
     }
 
     @Override
     public void deleteStudent(Long id) {
-        repo.deleteById(id);
+        store.remove(id);
     }
 }

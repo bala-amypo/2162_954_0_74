@@ -1,27 +1,27 @@
-package com.example.demo.entity;
+package com.example.demo.entity
+public class Studentity {
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-
-@Entity
-public class StudentEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
+    private int id;
     private String name;
     private String email;
 
-    public StudentEntity() {}
+    
+    public Studentity() {
+    }
 
-    public Long getId() {
+    
+    public Studentity(int id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
