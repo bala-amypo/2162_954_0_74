@@ -23,7 +23,7 @@ public class Studctl{
     }
     @GetMapping("/Getadd/{id}")
     public StudEntity get(@PathVariable int id){
-        return ser.getAllStudent(id);
+        return ser.getStudent(id);
     }
     @GetMapping("/getAll")
     public Map<Integer,StudEntity>getAllStudents(){
