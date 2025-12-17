@@ -18,6 +18,15 @@ public class StudService{
     public StudEntity getStudent(int id){
         return details.get(id);
     }
-    public Map<Integer,StudEntity>getAllStudents
+    public Map<Integer,StudEntity>getAllStudents(){
+        return details;
+    }
+    public StudEntity updateStudent(int id,StudEntity st){
+        if(details.containsKey(id)){
+            details.put(id,st);
+            return st;
+        }
+        return null;
+    }
     
     }
