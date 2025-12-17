@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.Entity.StudEntity;
 
 @Service
-public class StudService{
+public class Studentservice{
     Map<Integer,StudEntity>details=new HashMap<>();
 
     public StudEntity saveData(StudEntity st){

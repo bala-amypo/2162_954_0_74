@@ -1,20 +1,22 @@
-package com.example.demo.Contoller;
+package com.example.demo.contoller;
 
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotion.PathVariable;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Entity.StudEntity;
-import com.example.demo.Service.StudService;
+package com.example.demo.controller;
+package com.example.demo.entity;
+package com.example.demo.service;
+
 
 @RestController
-public class Studctl{
+public class Studentcontroller{
     @Autowired
     StudService ser;
     @PostMapping("/Postadd")
