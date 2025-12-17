@@ -1,32 +1,18 @@
 package com.example.demo.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.stereotype.Service;
-
+import java.util.List;
+import java.util.Optional;
 import com.example.demo.entity.StudentEntity;
 
-@Service
-public class StudentService {
+public interface StudentService {
 
-    private final Map<Integer, StudentEntity> store = new HashMap<>();
+    StudentEntity addStudent(StudentEntity student);
 
-    public StudentEntity save(StudentEntity student) {
-        store.put(student.getId(), student);
-        return student;
-    }
+    List<StudentEntity> getAllStudents();
 
-    public StudentEntity getById(int id) {
-        return store.get(id);
-    }
+    Optional<StudentEntity> getStudentById(Long id);
 
-    public Map<Integer, StudentEntity> getAll() {
-        return store;
-    }
+    StudentEntity updateStudent(Long id, StudentEntity student);
 
-    public StudentEntity update(int id, StudentEntity student) {
-        store.put(id, student);
-        return student;
-    }
+    void deleteStudent(Long id);
 }

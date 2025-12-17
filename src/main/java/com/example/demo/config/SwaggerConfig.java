@@ -2,7 +2,6 @@ package com.example.demo.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,11 +9,11 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerConfig {
 
     @Bean
-    public OpenAPI openAPI() {
+    public OpenAPI studentAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Student API")
-                        .description("Map based Spring Boot API")
-                        .version("1.0"));
+                        .title("Student Management API")
+                        .version("1.0")
+                        .description("CRUD operations for StudentEntity"));
     }
 }

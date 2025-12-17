@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
-import java.util.Map;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,21 +18,27 @@ public class StudentController {
 
     @PostMapping("/add")
     public StudentEntity add(@RequestBody StudentEntity student) {
-        return service.save(student);
-    }
-
-    @GetMapping("/{id}")
-    public StudentEntity get(@PathVariable int id) {
-        return service.getById(id);
+        return service.addStudent(student);
     }
 
     @GetMapping("/all")
-    public Map<Integer, StudentEntity> getAll() {
-        return service.getAll();
+    public List<StudentEntity> getAll() {
+        return service.getAllStudents();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<StudentEntity> getOne(@PathVariable Long id) {
+        return service.getStudentById(id);
     }
 
     @PutMapping("/update/{id}")
-    public StudentEntity update(@PathVariable int id, @RequestBody StudentEntity student) {
-        return service.update(id, student);
+    public StudentEntity update(@PathVariable Long id, @RequestBody StudentEntity student) {
+        return service.updateStudent(id, student);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        service.deleteStudent(id);
+        return "Student deleted successfully";
     }
 }
